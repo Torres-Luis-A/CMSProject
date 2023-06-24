@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"><!--supports chareters used in ultiple languages-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--supports compatibility with internet explorer-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--mobile device scale support-->
+    <!--tittle and webpage favicon-->
+    <title>Web Form | Luis Torres</title>
+    <link rel="icon" href="https://torresla.tech/Resources/favicon.png" type="image/x-icon"> 
+    <link rel="stylesheet" href="https://torresla.tech/Style/mainstylesheet.css" type="text/css">
+</head>
+
+<nav id="navbar">
+    <h2><a class="navopt" style="text-decoration: none;" href="https://torresla.tech/">Home</a></h2>
+</nav>
+
+<div id="formbody">
+
+        <div id="sampleform">
+        <form>
+            <label id="Feedback">Questions, comments, concerns, please use the form below for any and all feedback!</label><br>
+            <input type="hidden" name="ToAddress" value="torresla960@gmail.com">
+            <input type="hidden" name="CCAddress" value="todd.wolfe@sunyempire.edu">
+            <input type="hidden" name="Subject" value="WSD: Assignment 2.2 - Web Form for Luis Torres">
+            <fieldset>
+                <Legend>Your Email</Legend>
+                    <label>Email:</label><input type="email" name="FromAddress" id="email">
+            </fieldset>
+            <fieldset>
+                <Legend>Address</Legend>
+                    <label>Street: <input type="text" name="Street" id="Street"><br></label><br>
+                    <label>City: <input type="text" name="City" id="City"></label>
+                    <label>State: <input type="text" name="State" id="State" maxlength="2" size="2"></label>
+                    <label>Zip: <input type="text" name="Zip" id="Zip" maxlength="5" size="5"></label>
+  
+            </fieldset>
+            <fieldset>
+                    <legend>Enter Comments Below:</legend>
+                        <textarea name="comments" id="comments" cols="80%" rows="5" placeholder="I love the site it's perfect!!!"></textarea>
+            </fieldset>
+            <fieldset>
+                <legend>Rate the site!</legend>
+                    <input type="radio" name="rating" id="rate1" value="1" class="rate">1
+                    <input type="radio" name="rating" id="rate2" value="2" class="rate">2
+                    <input type="radio" name="rating" id="rate3" value="3" class="rate">3
+                    <input type="radio" name="rating" id="rate4" value="4" class="rate">4
+                    <input type="radio" name="rating" id="rate5" value="5" class="rate">5
+
+            </fieldset>
+            <input type="submit" id="submit">  
+            <input type="reset" id="rset">  
+        </form>
+        </div>
+        <script>
+            document.getElementById('submit').addEventListener('click', function (event) {
+              event.preventDefault(); // Prevent form submission
+          
+              var toAddress = document.getElementsByName('ToAddress')[0].value;
+              var ccAddress = document.getElementsByName('CCAddress')[0].value;
+              var subject = document.getElementsByName('Subject')[0].value;
+              var fromAddress = document.getElementById('email').value;
+              var street = document.getElementById('Street').value;
+              var city = document.getElementById('City').value;
+              var state = document.getElementById('State').value;
+              var zip = document.getElementById('Zip').value;
+              var comments = document.getElementById('comments').value;
+              var rating = document.querySelector('input[name="rating"]:checked').value;
+          
+              var body =
+                'From: ' +
+                fromAddress +
+                '\n' +
+                'Street: ' +
+                street +
+                '\n' +
+                'City: ' +
+                city +
+                '\n' +
+                'State: ' +
+                state +
+                '\n' +
+                'Zip: ' +
+                zip +
+                '\n' +
+                'Comments: ' +
+                comments +
+                '\n' +
+                'Rating: ' +
+                rating +
+                '\n';
+          
+              var mailtoLink =
+                'mailto:' +
+                encodeURIComponent(toAddress) +
+                '?cc=' +
+                encodeURIComponent(ccAddress) +
+                '&subject=' +
+                encodeURIComponent(subject) +
+                '&body=' +
+                encodeURIComponent(body);
+          
+              // Open default email client with pre-filled data
+              window.location.href = mailtoLink;
+            });
+          </script>
+          
+    
+</div>
+
+</html>
