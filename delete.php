@@ -7,7 +7,7 @@ if (isset($_POST['delete_title'])) {
     // Connect to the database
     $servername = "localhost";
     $username = "cdlwebde_torres";
-    $password = "WSD2024!";
+    $password = "";
     $dbname = "cdlwebde_Torres";
 
     // Create connection
