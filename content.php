@@ -1,8 +1,8 @@
 <?php
 // Code for displaying data from the database
 $servername = "localhost";
-$username = "cdlwebde_torres";
-$password = "WSD2024!";
+$username = "USname";
+$password = "******";
 $dbname = "cdlwebde_Torres";
 
 // Create connection
